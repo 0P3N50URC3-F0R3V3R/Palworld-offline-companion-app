@@ -1,0 +1,36 @@
+body.pals-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#palsHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#palsHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#palsLayout { display: flex; height: calc(100vh - 56px); }
+#palsList { width: 340px; flex-shrink: 0; overflow-y: auto; padding: 12px; border-right: 1px solid #22354a; box-sizing: border-box; }
+#palsDetail { flex: 1; overflow-y: auto; padding: 20px 28px; box-sizing: border-box; }
+#palsDetail .empty { color: #7d90ab; font-size: 14px; }
+
+.pal-detail-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.pal-detail-icon { width: 64px; height: 64px; border-radius: 50%; background: #22354a; object-fit: cover; }
+.pal-detail-sub { color: #7d90ab; font-size: 13px; margin-top: 2px; }
+.pal-desc { color: #c7d1de; font-size: 13.5px; line-height: 1.5; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px 16px; margin-bottom: 16px; }
+.stat-row { display: flex; justify-content: space-between; background: #17283b; border: 1px solid #223349; border-radius: 6px; padding: 6px 10px; font-size: 12.5px; }
+.stat-label { color: #9fb0c6; }
+.stat-value { font-weight: 700; }
+
+.work-row { display: flex; gap: 14px; margin-bottom: 16px; }
+.work-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.work-item img { width: 24px; height: 24px; }
+
+.drop-list, .skill-list { list-style: none; padding: 0; margin: 0 0 16px; font-size: 13px; }
+.drop-list li, .skill-list li { padding: 6px 0; border-bottom: 1px solid #1e3149; }
+.drop-detail { color: #7d90ab; margin-left: 6px; }
+
+.active-skill-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.active-skill { background: #17283b; border: 1px solid #223349; border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.active-skill-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.active-skill-head .lv { color: #7d90ab; font-size: 12px; }
+.active-skill-head .tag { background: #22354a; border-radius: 4px; padding: 1px 6px; font-size: 11px; color: #9fb0c6; }
+.active-skill-stats { color: #9fb0c6; font-size: 12px; margin-bottom: 4px; }
+.active-skill-inflicts { color: #e8590c; font-size: 12px; margin-bottom: 4px; }
+.active-skill-desc { color: #c7d1de; }
+
+.related-pals { color: #9fb0c6; font-size: 13px; }

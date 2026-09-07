@@ -1,0 +1,20 @@
+body.tech-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#techHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#techHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#techFilters { display: flex; align-items: center; gap: 14px; padding: 10px 16px; background: #14202e; border-bottom: 1px solid #22354a; flex-wrap: wrap; }
+#techFilters .search-input { flex: 0 1 220px; }
+#techFilters .check-row { font-size: 13px; color: #9fb0c6; display: flex; align-items: center; gap: 6px; }
+
+#techTree { height: calc(100vh - 108px); overflow-y: auto; padding: 16px 20px; box-sizing: border-box; }
+#techTree .empty { color: #7d90ab; font-size: 14px; }
+
+.tech-level-group { margin-bottom: 18px; }
+.tech-level-title { font-size: 13px; font-weight: 700; color: #7d90ab; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #22354a; }
+.tech-node-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.tech-node { display: flex; flex-direction: column; align-items: center; width: 92px; text-align: center; gap: 4px; }
+.tech-node-icon-wrap { position: relative; }
+.tech-node-icon { width: 48px; height: 48px; border-radius: 8px; background: #17283b no-repeat center/contain; border: 1px solid #22354a; }
+.tech-node-cost { position: absolute; top: -6px; right: -6px; background: #1e3149; border: 1px solid #2ecc71; color: #2ecc71; border-radius: 10px; font-size: 10px; padding: 1px 5px; }
+.tech-node-name { font-size: 11px; line-height: 1.3; }
+.tech-node-flags { display: flex; gap: 3px; }
+.tech-flag { font-size: 9px; background: #22354a; border-radius: 3px; padding: 1px 4px; color: #9fb0c6; }

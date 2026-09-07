@@ -1,0 +1,28 @@
+body.expeditions-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#expeditionsHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#expeditionsHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#expeditionsList { height: calc(100vh - 56px); overflow-y: auto; padding: 16px 20px; box-sizing: border-box; }
+#expeditionsList .empty { color: #7d90ab; font-size: 14px; }
+
+.expedition-category-title { font-size: 16px; font-weight: 700; margin: 18px 0 10px; color: #e8ecf1; }
+.expedition-category-title:first-child { margin-top: 0; }
+
+.expedition-card { background: #14202e; border: 1px solid #22354a; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+.expedition-card-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; cursor: pointer; }
+.expedition-name { font-weight: 700; font-size: 14px; }
+.expedition-meta { display: flex; gap: 12px; color: #9fb0c6; font-size: 12px; }
+.expedition-difficulty-Easy { color: #2ecc71; }
+.expedition-difficulty-Normal { color: #f1c40f; }
+.expedition-difficulty-Hard { color: #e67e22; }
+.expedition-difficulty-VeryHard { color: #e74c3c; }
+.expedition-unlock { padding: 0 16px 10px; color: #7d90ab; font-size: 12px; }
+.expedition-element { display: flex; align-items: center; gap: 4px; }
+.expedition-element img { width: 16px; height: 16px; }
+
+.expedition-rewards { display: none; padding: 0 16px 14px; }
+.expedition-card.expanded .expedition-rewards { display: block; }
+.reward-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 12.5px; border-bottom: 1px solid #1e3149; }
+.reward-icon { width: 22px; height: 22px; object-fit: contain; background: #17283b; border-radius: 4px; }
+.reward-name { flex: 1; }
+.reward-qty { color: #9fb0c6; }
+.reward-pct { color: #7d90ab; margin-left: 8px; width: 46px; text-align: right; }

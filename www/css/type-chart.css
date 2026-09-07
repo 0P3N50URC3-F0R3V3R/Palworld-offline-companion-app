@@ -1,0 +1,23 @@
+body.type-chart-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#typeChartHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#typeChartHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#typeChartLayout { padding: 20px 28px; box-sizing: border-box; max-width: 980px; margin: 0 auto; }
+.type-chart-hint { color: #9fb0c6; font-size: 13px; margin-bottom: 14px; }
+.type-chart-hint .tc-strong { color: #4caf50; font-weight: 700; }
+.type-chart-hint .tc-weak { color: #e8590c; font-weight: 700; }
+
+.type-chart-table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+.type-chart-table th, .type-chart-table td { border: 1px solid #22354a; padding: 6px 4px; text-align: center; }
+.type-chart-table thead th { background: #14202e; color: #9fb0c6; font-weight: 600; }
+.type-chart-table tbody th { background: #14202e; color: #9fb0c6; font-weight: 600; text-align: right; padding-right: 8px; }
+.type-chart-table .tc-corner { background: #14202e; }
+.type-chart-table td.tc-neutral { color: #7d90ab; background: #17283b; }
+.type-chart-table td.tc-strong { color: #0d1b2a; background: #4caf50; font-weight: 700; cursor: pointer; }
+.type-chart-table td.tc-weak { color: #0d1b2a; background: #e8590c; font-weight: 700; cursor: pointer; }
+.type-chart-table td[data-atk] { cursor: pointer; }
+.type-chart-table td[data-atk]:hover { outline: 2px solid #e8ecf1; outline-offset: -2px; }
+
+#typeChartPals { margin-top: 20px; }
+.tc-pal-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tc-pal-chip { display: flex; align-items: center; gap: 6px; background: #17283b; border: 1px solid #223349; border-radius: 16px; padding: 4px 10px 4px 4px; font-size: 12.5px; }
+.tc-pal-thumb { width: 24px; height: 24px; border-radius: 50%; background-color: #22354a; background-size: cover; background-position: center; flex-shrink: 0; }

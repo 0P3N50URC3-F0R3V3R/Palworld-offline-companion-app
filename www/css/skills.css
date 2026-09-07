@@ -1,0 +1,32 @@
+body.skills-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#skillsHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#skillsHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+
+.skills-tabs { display: flex; gap: 4px; padding: 10px 16px; background: #14202e; border-bottom: 1px solid #22354a; }
+.skills-tab { padding: 6px 14px; border-radius: 6px; background: #17283b; border: 1px solid #22354a; color: #9fb0c6; cursor: pointer; font-size: 13px; }
+.skills-tab.active { background: #1e3149; color: #e8ecf1; border-color: #2ecc71; }
+
+#skillsLayout { display: flex; height: calc(100vh - 104px); }
+#skillsList { width: 380px; flex-shrink: 0; overflow-y: auto; padding: 12px; border-right: 1px solid #22354a; box-sizing: border-box; }
+#skillsDetail { flex: 1; overflow-y: auto; padding: 20px 28px; box-sizing: border-box; }
+#skillsDetail .empty, #skillsList .empty { color: #7d90ab; font-size: 14px; }
+
+.skill-row { gap: 10px; }
+.skill-thumb { width: 30px; height: 30px; flex-shrink: 0; border-radius: 6px; background: #17283b no-repeat center/contain; }
+.skill-label { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.skill-sub { color: #7d90ab; font-size: 11px; }
+
+.skill-detail-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.skill-detail-icon { width: 56px; height: 56px; border-radius: 10px; background: #22354a; object-fit: contain; }
+.skill-detail-sub { color: #7d90ab; font-size: 13px; margin-top: 2px; }
+.skill-desc { color: #c7d1de; font-size: 13.5px; line-height: 1.5; }
+.skill-inflicts { color: #e07a5f; font-size: 12.5px; }
+.skill-rating { color: #2ecc71; font-size: 12.5px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px 16px; margin: 10px 0 16px; }
+.stat-row { display: flex; justify-content: space-between; background: #17283b; border: 1px solid #223349; border-radius: 6px; padding: 6px 10px; font-size: 12.5px; }
+.stat-label { color: #9fb0c6; }
+.stat-value { font-weight: 700; }
+
+.tag-row { display: flex; gap: 6px; margin-bottom: 10px; }
+.tag { background: #22354a; border-radius: 4px; padding: 2px 8px; font-size: 11.5px; color: #9fb0c6; }

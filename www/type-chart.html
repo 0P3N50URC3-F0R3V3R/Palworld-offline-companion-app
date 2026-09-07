@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Type Chart - Palworld Companion</title>
+<link rel="icon" href="app-icon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/app.css?v=1.0.0">
+<link rel="stylesheet" href="vendor/quill/quill.snow.css">
+<link rel="stylesheet" href="css/sidenotes.css?v=1.0.0">
+<link rel="stylesheet" href="css/type-chart.css?v=1.0.0">
+</head>
+<body class="type-chart-page">
+<div id="typeChartHeader">
+  <a href="index.html" class="back-btn" title="Back to map">&larr;</a>
+  <div class="panel-title">Type Chart</div>
+</div>
+<div id="typeChartLayout">
+  <div class="type-chart-hint">Rows attack columns. <span class="tc-strong">1.5x</span> super effective &middot; <span class="tc-weak">0.5x</span> resisted &middot; 1x neutral. Click a cell to see matching Pals.</div>
+  <div id="typeChartGrid"></div>
+  <div id="typeChartPals"></div>
+</div>
+<script src="js/type-chart.js?v=1.0.0"></script>
+<script src="vendor/quill/quill.min.js"></script>
+<script src="js/sidenotes.js?v=1.0.0"></script>
+</body>
+</html>

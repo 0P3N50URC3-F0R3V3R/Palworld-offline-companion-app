@@ -1,0 +1,27 @@
+body.compare-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#compareHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#compareHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#compareLayout { padding: 20px 28px; box-sizing: border-box; max-width: 1100px; margin: 0 auto; }
+
+#compareTray .empty { color: #7d90ab; font-size: 13px; margin-bottom: 14px; }
+.ct-cards { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.ct-card { background: #17283b; border: 1px solid #223349; border-radius: 10px; padding: 12px 14px; min-width: 160px; }
+.ct-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.ct-card-stat { display: flex; justify-content: space-between; font-size: 12.5px; padding: 3px 0; color: #9fb0c6; }
+.ct-card-stat.best { color: #4caf50; font-weight: 700; }
+
+.search-input { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+
+#compareTableWrap { overflow-x: auto; }
+#compareTable { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+#compareTable th, #compareTable td { border-bottom: 1px solid #1e3149; padding: 7px 10px; text-align: right; white-space: nowrap; }
+#compareTable .ct-name-col { text-align: left; }
+#compareTable thead th { color: #9fb0c6; font-weight: 600; position: sticky; top: 0; background: #0d1b2a; }
+#compareTable th.ct-sortable { cursor: pointer; }
+#compareTable th.ct-sortable.asc::after { content: ' \25B2'; }
+#compareTable th.ct-sortable.desc::after { content: ' \25BC'; }
+#compareTable tr.ct-row { cursor: pointer; }
+#compareTable tr.ct-row:hover { background: #14202e; }
+#compareTable tr.ct-row.in-tray { background: #1c3350; }
+.ct-thumb { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background-color: #22354a; background-size: cover; background-position: center; vertical-align: middle; margin-right: 6px; }
+.ct-thumb.lg { width: 32px; height: 32px; }

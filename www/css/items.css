@@ -1,0 +1,39 @@
+body.items-page { margin: 0; height: 100%; font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #0d1b2a; color: #e8ecf1; }
+#itemsHeader { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #14202e; border-bottom: 1px solid #22354a; position: sticky; top: 0; z-index: 10; }
+#itemsHeader .back-btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+#itemsLayout { display: flex; height: calc(100vh - 56px); }
+#itemsList { width: 360px; flex-shrink: 0; overflow-y: auto; padding: 12px; border-right: 1px solid #22354a; box-sizing: border-box; }
+#itemsDetail { flex: 1; overflow-y: auto; padding: 20px 28px; box-sizing: border-box; }
+#itemsDetail .empty { color: #7d90ab; font-size: 14px; }
+
+#itemsTypeFilter { margin-top: 8px; }
+
+.item-row { gap: 10px; }
+.item-thumb { width: 34px; height: 34px; flex-shrink: 0; border-radius: 6px; background: #17283b no-repeat center/contain; }
+.item-label { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+.item-type { color: #7d90ab; font-size: 11px; }
+.count.rarity-legendary, .item-detail-sub .rarity-legendary { color: #ff8c00; }
+.count.rarity-epic, .item-detail-sub .rarity-epic { color: #b060ff; }
+.count.rarity-rare, .item-detail-sub .rarity-rare { color: #0077ff; }
+.count.rarity-uncommon, .item-detail-sub .rarity-uncommon { color: #2ecc71; }
+.count.rarity-common, .item-detail-sub .rarity-common { color: #9fb0c6; }
+
+.item-detail-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.item-detail-icon { width: 64px; height: 64px; border-radius: 10px; background: #22354a; object-fit: contain; }
+.item-detail-sub { color: #7d90ab; font-size: 13px; margin-top: 2px; }
+.item-desc { color: #c7d1de; font-size: 13.5px; line-height: 1.5; }
+.item-unlock { color: #63b56c; font-size: 12.5px; margin-top: -6px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px 16px; margin-bottom: 16px; }
+.stat-row { display: flex; justify-content: space-between; background: #17283b; border: 1px solid #223349; border-radius: 6px; padding: 6px 10px; font-size: 12.5px; }
+.stat-label { color: #9fb0c6; }
+.stat-value { font-weight: 700; }
+
+.recipe-list, .drop-list, .skill-list, .link-list { list-style: none; padding: 0; margin: 0 0 16px; font-size: 13px; }
+.recipe-list li, .drop-list li, .skill-list li, .link-list li { padding: 6px 0; border-bottom: 1px solid #1e3149; display: flex; align-items: center; gap: 8px; }
+.skill-list li, .drop-list li { display: block; }
+.recipe-icon { width: 22px; height: 22px; object-fit: contain; background: #17283b; border-radius: 4px; }
+.recipe-qty { color: #7d90ab; margin-left: auto; }
+.link-note { color: #7d90ab; margin-left: 6px; }
+
+.skill-list .tag { background: #22354a; border-radius: 4px; padding: 1px 6px; font-size: 11px; color: #9fb0c6; margin-left: 4px; }

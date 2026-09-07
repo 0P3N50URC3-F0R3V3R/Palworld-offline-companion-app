@@ -1,0 +1,14 @@
+{
+  "mapName": "Palpagos Islands",
+  "mapSlug": "palpagos-islands",
+  "objectSlug": "palworld",
+  "minZoom": 8,
+  "maxZoom": 16,
+  "initialZoom": 14,
+  "initialLat": 0.60779727,
+  "initialLng": -0.69693416,
+  "tilesets": [
+    "https://tiles.mapgenie.io/games/palworld/1-0/default-v1/{z}/{x}/{y}.jpg"
+  ],
+  "markerSpriteUrl": "https://cdn.mapgenie.io/images/games/palworld/markers@2x.png?MjAzMjkz"
+}

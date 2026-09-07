@@ -1,0 +1,583 @@
+[
+  {
+    "typeSlug": "1690",
+    "typeName": "Locations",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10308",
+    "typeName": "Dungeon",
+    "parentTypeSlug": "1690",
+    "markerCount": 152,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 44,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10279",
+    "typeName": "Fast Travel",
+    "parentTypeSlug": "1690",
+    "markerCount": 150,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10283",
+    "typeName": "Fishing Spot",
+    "parentTypeSlug": "1690",
+    "markerCount": 72,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10281",
+    "typeName": "Location",
+    "parentTypeSlug": "1690",
+    "markerCount": 25,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10307",
+    "typeName": "Point of Interest",
+    "parentTypeSlug": "1690",
+    "markerCount": 16,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10303",
+    "typeName": "Respawn Point",
+    "parentTypeSlug": "1690",
+    "markerCount": 7,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 198,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10304",
+    "typeName": "Sealed Realm",
+    "parentTypeSlug": "1690",
+    "markerCount": 18,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10309",
+    "typeName": "Syndicate Tower",
+    "parentTypeSlug": "1690",
+    "markerCount": 9,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "16580",
+    "typeName": "Watchtower",
+    "parentTypeSlug": "1690",
+    "markerCount": 22,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1696",
+    "typeName": "NPC's",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10310",
+    "typeName": "Merchant",
+    "parentTypeSlug": "1696",
+    "markerCount": 11,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10280",
+    "typeName": "NPC",
+    "parentTypeSlug": "1696",
+    "markerCount": 36,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10311",
+    "typeName": "Pal Merchant",
+    "parentTypeSlug": "1696",
+    "markerCount": 20,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 66,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1691",
+    "typeName": "Collectibles",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10289",
+    "typeName": "Effigy",
+    "parentTypeSlug": "1691",
+    "markerCount": 821,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 198,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10288",
+    "typeName": "Journal",
+    "parentTypeSlug": "1691",
+    "markerCount": 51,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10290",
+    "typeName": "Schematic",
+    "parentTypeSlug": "1691",
+    "markerCount": 10,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 33,
+      "offsetY": 44,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1697",
+    "typeName": "Items",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10292",
+    "typeName": "Egg",
+    "parentTypeSlug": "1697",
+    "markerCount": 1014,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "12022",
+    "typeName": "Elemental Chest",
+    "parentTypeSlug": "1697",
+    "markerCount": 112,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 33,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10306",
+    "typeName": "Skill Fruit Tree",
+    "parentTypeSlug": "1697",
+    "markerCount": 43,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 66,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10285",
+    "typeName": "Treasure Chest",
+    "parentTypeSlug": "1697",
+    "markerCount": 1553,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 165,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1692",
+    "typeName": "Enemies",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10295",
+    "typeName": "Alpha Pal",
+    "parentTypeSlug": "1692",
+    "markerCount": 90,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 0,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10294",
+    "typeName": "Biome Boss",
+    "parentTypeSlug": "1692",
+    "markerCount": 13,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 66,
+      "offsetY": 0,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "12211",
+    "typeName": "Bounty",
+    "parentTypeSlug": "1692",
+    "markerCount": 32,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 0,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10313",
+    "typeName": "Enemy Camp",
+    "parentTypeSlug": "1692",
+    "markerCount": 54,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 66,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "12023",
+    "typeName": "Predator Pal",
+    "parentTypeSlug": "1692",
+    "markerCount": 33,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 132,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1693",
+    "typeName": "Quests",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10296",
+    "typeName": "Main Mission",
+    "parentTypeSlug": "1693",
+    "markerCount": 31,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 66,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10297",
+    "typeName": "Sub Mission",
+    "parentTypeSlug": "1693",
+    "markerCount": 1,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 33,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1695",
+    "typeName": "Other",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "10301",
+    "typeName": "Captured Pal",
+    "parentTypeSlug": "1695",
+    "markerCount": 31,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 198,
+      "offsetY": 0,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10300",
+    "typeName": "Easter Egg",
+    "parentTypeSlug": "1695",
+    "markerCount": 1,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 198,
+      "offsetY": 44,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10299",
+    "typeName": "Miscellaneous",
+    "parentTypeSlug": "1695",
+    "markerCount": 9,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 198,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10298",
+    "typeName": "Pal",
+    "parentTypeSlug": "1695",
+    "markerCount": 1,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 33,
+      "offsetY": 176,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10284",
+    "typeName": "Statue of Power",
+    "parentTypeSlug": "1695",
+    "markerCount": 4,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 220,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "1698",
+    "typeName": "Materials",
+    "parentTypeSlug": null,
+    "markerCount": null,
+    "icon": null
+  },
+  {
+    "typeSlug": "12019",
+    "typeName": "Chromite",
+    "parentTypeSlug": "1698",
+    "markerCount": 38,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 0,
+      "offsetY": 44,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10305",
+    "typeName": "Crude Oil",
+    "parentTypeSlug": "1698",
+    "markerCount": 124,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 99,
+      "offsetY": 44,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "12021",
+    "typeName": "Hexolite Quartz",
+    "parentTypeSlug": "1698",
+    "markerCount": 189,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 165,
+      "offsetY": 88,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  },
+  {
+    "typeSlug": "10302",
+    "typeName": "Mining Site",
+    "parentTypeSlug": "1698",
+    "markerCount": 74,
+    "icon": {
+      "url": "https://oyster.ignimgs.com/ignmedia/wikimaps/defaults/markers/blank.png",
+      "width": 33,
+      "height": 44,
+      "offsetX": 165,
+      "offsetY": 132,
+      "anchorX": 16.5,
+      "anchorY": 44
+    }
+  }
+]
