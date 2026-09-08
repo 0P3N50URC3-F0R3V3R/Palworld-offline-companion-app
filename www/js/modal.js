@@ -8,8 +8,8 @@
         '<div class="modal-title"></div>' +
         '<input class="modal-input" type="' + (inputType || 'text') + '">' +
         '<div class="modal-actions">' +
-        '<button class="modal-btn modal-cancel">Cancel</button>' +
-        '<button class="modal-btn modal-ok">OK</button>' +
+        '<button class="modal-btn modal-cancel">' + I18N.t('common.cancel') + '</button>' +
+        '<button class="modal-btn modal-ok">' + I18N.t('common.ok') + '</button>' +
         '</div></div>';
       overlay.querySelector('.modal-title').textContent = title;
       const input = overlay.querySelector('.modal-input');
@@ -41,11 +41,11 @@
       overlay.innerHTML =
         '<div class="modal-box">' +
         '<div class="modal-title"></div>' +
-        '<input class="modal-input modal-note-title" type="text" placeholder="Title">' +
-        '<textarea class="modal-input modal-textarea modal-note-body" rows="5" placeholder="Note text..."></textarea>' +
+        '<input class="modal-input modal-note-title" type="text" placeholder="' + I18N.t('modal.note_title_placeholder') + '">' +
+        '<textarea class="modal-input modal-textarea modal-note-body" rows="5" placeholder="' + I18N.t('modal.note_body_placeholder') + '"></textarea>' +
         '<div class="modal-actions">' +
-        '<button class="modal-btn modal-cancel">Cancel</button>' +
-        '<button class="modal-btn modal-ok">Save</button>' +
+        '<button class="modal-btn modal-cancel">' + I18N.t('common.cancel') + '</button>' +
+        '<button class="modal-btn modal-ok">' + I18N.t('common.save') + '</button>' +
         '</div></div>';
       overlay.querySelector('.modal-title').textContent = dialogTitle;
       const titleInput = overlay.querySelector('.modal-note-title');
@@ -64,7 +64,7 @@
         const title = titleInput.value.trim();
         const text = bodyInput.value.trim();
         if (!title && !text) { close(null); return; }
-        close({ title: title || 'Untitled note', text });
+        close({ title: title || I18N.t('modal.untitled_note'), text });
       }
       overlay.querySelector('.modal-ok').addEventListener('click', submit);
       overlay.querySelector('.modal-cancel').addEventListener('click', () => close(null));
@@ -88,24 +88,24 @@
       overlay.innerHTML =
         '<div class="modal-box modal-box-wide">' +
         '<div class="modal-title"></div>' +
-        '<label class="modal-field-label">Server name</label>' +
-        '<input class="modal-input f-name" type="text" placeholder="My Dedicated Server">' +
+        '<label class="modal-field-label">' + I18N.t('modal.server_name_label') + '</label>' +
+        '<input class="modal-input f-name" type="text" placeholder="' + I18N.t('modal.server_name_placeholder') + '">' +
         '<div class="modal-field-row">' +
-        '<div><label class="modal-field-label">Host / IP</label><input class="modal-input f-host" type="text" placeholder="192.168.1.11"></div>' +
-        '<div class="modal-field-narrow"><label class="modal-field-label">Port</label><input class="modal-input f-port" type="text" placeholder="8212"></div>' +
+        '<div><label class="modal-field-label">' + I18N.t('modal.server_host_label') + '</label><input class="modal-input f-host" type="text" placeholder="' + I18N.t('modal.server_host_placeholder') + '"></div>' +
+        '<div class="modal-field-narrow"><label class="modal-field-label">' + I18N.t('modal.server_port_label') + '</label><input class="modal-input f-port" type="text" placeholder="8212"></div>' +
         '</div>' +
         '<div class="modal-field-row">' +
-        '<div><label class="modal-field-label">Username</label><input class="modal-input f-username" type="text" placeholder="admin"></div>' +
-        '<div><label class="modal-field-label">Admin password</label><input class="modal-input f-password" type="password"></div>' +
+        '<div><label class="modal-field-label">' + I18N.t('modal.server_username_label') + '</label><input class="modal-input f-username" type="text" placeholder="' + I18N.t('modal.server_username_placeholder') + '"></div>' +
+        '<div><label class="modal-field-label">' + I18N.t('modal.server_password_label') + '</label><input class="modal-input f-password" type="password"></div>' +
         '</div>' +
-        '<label class="modal-checkbox-row"><input type="checkbox" class="f-https"> Use HTTPS</label>' +
-        '<label class="modal-checkbox-row"><input type="checkbox" class="f-remember"> Remember password on this device</label>' +
-        '<div class="modal-hint">Off by default — password stays in memory for this session only and is asked for again next launch.</div>' +
+        '<label class="modal-checkbox-row"><input type="checkbox" class="f-https"> ' + I18N.t('modal.server_use_https') + '</label>' +
+        '<label class="modal-checkbox-row"><input type="checkbox" class="f-remember"> ' + I18N.t('modal.server_remember_password') + '</label>' +
+        '<div class="modal-hint">' + I18N.t('modal.server_remember_hint') + '</div>' +
         '<div class="modal-status"></div>' +
         '<div class="modal-actions">' +
-        '<button class="modal-btn modal-cancel">Cancel</button>' +
-        '<button class="modal-btn modal-test">Test connection</button>' +
-        '<button class="modal-btn modal-ok">Save</button>' +
+        '<button class="modal-btn modal-cancel">' + I18N.t('common.cancel') + '</button>' +
+        '<button class="modal-btn modal-test">' + I18N.t('modal.test_connection') + '</button>' +
+        '<button class="modal-btn modal-ok">' + I18N.t('common.save') + '</button>' +
         '</div></div>';
       overlay.querySelector('.modal-title').textContent = dialogTitle;
       const nameInput = overlay.querySelector('.f-name');
@@ -131,7 +131,7 @@
       function readForm() {
         return {
           id: initial.id || ('srv' + Date.now() + Math.random().toString(36).slice(2, 7)),
-          name: nameInput.value.trim() || hostInput.value.trim() || 'Server',
+          name: nameInput.value.trim() || hostInput.value.trim() || I18N.t('common.server_word'),
           host: hostInput.value.trim(),
           port: parseInt(portInput.value, 10) || 8212,
           username: userInput.value.trim() || 'admin',
@@ -148,21 +148,21 @@
       }
       overlay.querySelector('.modal-test').addEventListener('click', async () => {
         const form = readForm();
-        if (!form.host) { statusEl.textContent = 'Enter a host/IP first.'; statusEl.className = 'modal-status error'; return; }
-        statusEl.textContent = 'Testing...';
+        if (!form.host) { statusEl.textContent = I18N.t('modal.host_required_first'); statusEl.className = 'modal-status error'; return; }
+        statusEl.textContent = I18N.t('modal.testing');
         statusEl.className = 'modal-status';
         try {
           const info = await window.PalServerAPI.getInfo(form);
-          statusEl.textContent = 'Connected: ' + (info.servername || 'server') + ' (' + (info.version || '?') + ')';
+          statusEl.textContent = I18N.t('modal.connected') + ' ' + (info.servername || 'server') + ' (' + (info.version || '?') + ')';
           statusEl.className = 'modal-status ok';
         } catch (e) {
-          statusEl.textContent = 'Failed: ' + e.message;
+          statusEl.textContent = I18N.t('modal.failed_prefix') + ' ' + e.message;
           statusEl.className = 'modal-status error';
         }
       });
       overlay.querySelector('.modal-ok').addEventListener('click', () => {
         const form = readForm();
-        if (!form.host) { statusEl.textContent = 'Host/IP is required.'; statusEl.className = 'modal-status error'; return; }
+        if (!form.host) { statusEl.textContent = I18N.t('modal.host_required'); statusEl.className = 'modal-status error'; return; }
         close(form);
       });
       overlay.querySelector('.modal-cancel').addEventListener('click', () => close(null));
@@ -179,13 +179,13 @@
         '<div class="modal-title"></div>' +
         '<div class="modal-confirm-message"></div>' +
         '<div class="modal-actions">' +
-        '<button class="modal-btn modal-cancel">Cancel</button>' +
+        '<button class="modal-btn modal-cancel">' + I18N.t('common.cancel') + '</button>' +
         '<button class="modal-btn ' + (danger ? 'modal-danger' : 'modal-ok') + '"></button>' +
         '</div></div>';
       overlay.querySelector('.modal-title').textContent = title;
       overlay.querySelector('.modal-confirm-message').textContent = message;
       const confirmBtn = overlay.querySelector('.modal-danger, .modal-ok');
-      confirmBtn.textContent = confirmLabel || 'Confirm';
+      confirmBtn.textContent = confirmLabel || I18N.t('common.confirm');
       document.body.appendChild(overlay);
       confirmBtn.focus();
 
@@ -203,14 +203,14 @@
       overlay.className = 'modal-overlay';
       overlay.innerHTML =
         '<div class="modal-box">' +
-        '<div class="modal-title">Shutdown server</div>' +
-        '<label class="modal-field-label">Wait time (seconds)</label>' +
+        '<div class="modal-title">' + I18N.t('modal.shutdown_title') + '</div>' +
+        '<label class="modal-field-label">' + I18N.t('modal.wait_time_label') + '</label>' +
         '<input class="modal-input f-waittime" type="text" value="60">' +
-        '<label class="modal-field-label">Message to players</label>' +
-        '<input class="modal-input f-message" type="text" placeholder="Server is shutting down...">' +
+        '<label class="modal-field-label">' + I18N.t('modal.message_to_players_label') + '</label>' +
+        '<input class="modal-input f-message" type="text" placeholder="' + I18N.t('modal.shutdown_message_placeholder') + '">' +
         '<div class="modal-actions">' +
-        '<button class="modal-btn modal-cancel">Cancel</button>' +
-        '<button class="modal-btn modal-danger">Shutdown</button>' +
+        '<button class="modal-btn modal-cancel">' + I18N.t('common.cancel') + '</button>' +
+        '<button class="modal-btn modal-danger">' + I18N.t('modal.shutdown_button') + '</button>' +
         '</div></div>';
       const waitInput = overlay.querySelector('.f-waittime');
       const msgInput = overlay.querySelector('.f-message');
@@ -235,12 +235,14 @@
       overlay.className = 'modal-overlay';
       overlay.innerHTML =
         '<div class="modal-box">' +
-        '<div class="modal-title">Switch Profile</div>' +
+        '<div class="modal-title">' + I18N.t('modal.switch_profile_title') + '</div>' +
+        '<div class="pm-lang-row"></div>' +
         '<div class="profile-list"></div>' +
-        '<button class="add-btn" id="pmNewProfileBtn">+ New Profile</button>' +
-        '<div class="modal-actions"><button class="modal-btn modal-cancel" id="pmCloseBtn">Close</button></div>' +
+        '<button class="add-btn" id="pmNewProfileBtn">' + I18N.t('modal.new_profile_button') + '</button>' +
+        '<div class="modal-actions"><button class="modal-btn modal-cancel" id="pmCloseBtn">' + I18N.t('common.close') + '</button></div>' +
         '</div>';
       document.body.appendChild(overlay);
+      I18N.renderSwitcher(overlay.querySelector('.pm-lang-row'));
       const listEl = overlay.querySelector('.profile-list');
       let profiles = initialProfiles.slice();
 
@@ -258,12 +260,12 @@
             const del = document.createElement('button');
             del.className = 'profile-delete-btn';
             del.textContent = '✕';
-            del.title = 'Delete profile';
+            del.title = I18N.t('modal.delete_profile_prefix');
             del.addEventListener('click', async () => {
               const ok = await showConfirm(
-                'Delete profile "' + p + '"?',
-                'This removes their notes, custom markers, and checklist progress. This cannot be undone.',
-                'Delete', true
+                I18N.t('modal.delete_profile_prefix') + ' "' + p + '"?',
+                I18N.t('modal.delete_profile_warning'),
+                I18N.t('modal.delete'), true
               );
               if (!ok) return;
               await handlers.onDelete(p);
@@ -279,15 +281,15 @@
 
       function close() { document.body.removeChild(overlay); resolve(); }
       overlay.querySelector('#pmNewProfileBtn').addEventListener('click', async () => {
-        const entered = await showPrompt('New profile', 'Enter a name...');
+        const entered = await showPrompt(I18N.t('modal.new_profile_title'), I18N.t('modal.enter_name_placeholder'));
         const trimmed = (entered || '').trim();
         if (!trimmed) return;
         if (!/^[A-Za-z0-9 _-]{1,30}$/.test(trimmed)) {
-          await showConfirm('Invalid name', 'Use letters, numbers, spaces, 1-30 characters.', 'OK');
+          await showConfirm(I18N.t('modal.invalid_name_title'), I18N.t('modal.invalid_name_message'), I18N.t('common.ok'));
           return;
         }
         if (profiles.includes(trimmed)) {
-          await showConfirm('Already exists', 'A profile with that name already exists.', 'OK');
+          await showConfirm(I18N.t('modal.already_exists_title'), I18N.t('modal.already_exists_message'), I18N.t('common.ok'));
           return;
         }
         await handlers.onCreate(trimmed);

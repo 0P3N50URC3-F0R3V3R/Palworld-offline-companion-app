@@ -17,17 +17,22 @@
   }
 
   function build() {
-    var tab = document.createElement('button');
+    // A real <button> here renders fine in modern Chromium, but older Chromium builds
+    // (e.g. Electron 8's bundled Chromium 80) don't apply vertical writing-mode to form
+    // controls at all and silently fall back to horizontal text - a plain <div> with an
+    // ARIA button role isn't a form control, so it renders vertical everywhere.
+    var tab = document.createElement('div');
     tab.id = 'sidenotesTab';
-    tab.type = 'button';
-    tab.textContent = 'NOTES';
+    tab.setAttribute('role', 'button');
+    tab.setAttribute('tabindex', '0');
+    tab.textContent = I18N.t('sidenotes.tab_label');
     document.body.appendChild(tab);
 
     var panel = document.createElement('div');
     panel.id = 'sidenotesPanel';
     panel.innerHTML =
       '<div id="sidenotesHeader">' +
-        '<div class="title">Notes</div>' +
+        '<div class="title">' + I18N.t('sidenotes.title') + '</div>' +
         '<button id="sidenotesClose" type="button">&times;</button>' +
       '</div>' +
       '<div id="sidenotesBody">' +
@@ -35,15 +40,20 @@
         '<div id="sidenotesFooter">' +
           '<span id="sidenotesCount">0 / ' + MAX_CHARS + '</span>' +
           '<span id="sidenotesStatus"></span>' +
-          '<button id="sidenotesSaveBtn" type="button">Save</button>' +
+          '<button id="sidenotesSaveBtn" type="button">' + I18N.t('common.save') + '</button>' +
         '</div>' +
       '</div>' +
-      '<div id="sidenotesGuest" style="display:none">Select a profile to use notes.</div>';
+      '<div id="sidenotesGuest" style="display:none">' + I18N.t('sidenotes.select_profile_to_use') + '</div>';
     document.body.appendChild(panel);
 
     tab.addEventListener('click', function () {
       panel.classList.toggle('open');
       if (panel.classList.contains('open')) ensureLoaded();
+    });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      tab.click();
     });
     document.getElementById('sidenotesClose').addEventListener('click', function () {
       panel.classList.remove('open');
@@ -112,15 +122,15 @@
     saveInFlight = true;
     var btn = document.getElementById('sidenotesSaveBtn');
     if (manual) btn.disabled = true;
-    setStatus('Saving...');
+    setStatus(I18N.t('common.saving'));
     try {
       await fetchJson('api/sidenotes-save.php?user=' + encodeURIComponent(profileName), {
         method: 'POST',
         body: JSON.stringify({ html: quill.root.innerHTML }),
       });
-      setStatus('Saved');
+      setStatus(I18N.t('sidenotes.saved'));
     } catch (e) {
-      setStatus('Save failed');
+      setStatus(I18N.t('common.save_failed'));
     } finally {
       saveInFlight = false;
       if (manual) btn.disabled = false;
@@ -128,9 +138,12 @@
     }
   }
 
+  function init() {
+    I18N.ready.then(build);
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', build);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    build();
+    init();
   }
 })();

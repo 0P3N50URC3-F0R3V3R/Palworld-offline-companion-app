@@ -1,13 +1,15 @@
 (function () {
-  const COLUMNS = [
-    { key: 'Hp', label: 'HP' },
-    { key: 'Base attack', label: 'ATK' },
-    { key: 'Defense', label: 'DEF' },
-    { key: 'Support', label: 'Support' },
-    { key: 'Craft speed', label: 'Craft Spd' },
-    { key: 'Rarity', label: 'Rarity' },
-    { key: 'Combi rank', label: 'Combi Rank' },
-  ];
+  function columns() {
+    return [
+      { key: 'Hp', label: I18N.t('compare.col_hp') },
+      { key: 'Base attack', label: I18N.t('compare.col_atk') },
+      { key: 'Defense', label: I18N.t('compare.col_def') },
+      { key: 'Support', label: I18N.t('compare.col_support') },
+      { key: 'Craft speed', label: I18N.t('compare.col_craft_spd') },
+      { key: 'Rarity', label: I18N.t('compare.col_rarity') },
+      { key: 'Combi rank', label: I18N.t('compare.col_combi_rank') },
+    ];
+  }
 
   let pals = [];
   let detailBySlug = {};
@@ -36,7 +38,8 @@
       return (av - bv) * sortDir;
     });
 
-    let html = '<thead><tr><th class="ct-name-col">Pal</th>';
+    const COLUMNS = columns();
+    let html = '<thead><tr><th class="ct-name-col">' + I18N.t('compare.col_pal') + '</th>';
     for (const col of COLUMNS) {
       const active = col.key === sortKey ? (sortDir === 1 ? ' asc' : ' desc') : '';
       html += '<th class="ct-sortable' + active + '" data-key="' + esc(col.key) + '">' + col.label + '</th>';
@@ -77,8 +80,9 @@
 
   function renderTray() {
     const el = document.getElementById('compareTray');
-    if (!traySlugs.length) { el.innerHTML = '<div class="empty">Click up to 4 Pals below to compare them side by side.</div>'; return; }
+    if (!traySlugs.length) { el.innerHTML = '<div class="empty">' + I18N.t('compare.tray_hint') + '</div>'; return; }
     const trayPals = traySlugs.map(s => pals.find(p => p.slug === s)).filter(Boolean);
+    const COLUMNS = columns();
     let best = {};
     for (const col of COLUMNS) {
       let max = -Infinity;
@@ -100,17 +104,17 @@
     el.innerHTML = html;
   }
 
-  Promise.all([
+  I18N.ready.then(() => Promise.all([
     fetch('data/pals.json').then(r => r.json()),
     fetch('data/pals-detail.json').then(r => r.json()),
-  ]).then(([p, detail]) => {
+  ])).then(([p, detail]) => {
     pals = p.slice();
     detailBySlug = detail;
     renderTray();
     renderTable('');
     document.getElementById('compareSearch').addEventListener('input', e => renderTable(e.target.value));
   }).catch(err => {
-    document.getElementById('compareTable').innerHTML = '<tbody><tr><td class="empty">Failed to load Pal data.</td></tr></tbody>';
+    document.getElementById('compareTable').innerHTML = '<tbody><tr><td class="empty">' + I18N.t('encyc.failed_load_pal') + '</td></tr></tbody>';
     console.error(err);
   });
 })();

@@ -1,0 +1,7 @@
+{
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://www.ign.com/wikis/palworld/Complete_Pal_List_and_Stats\",\"prompt\":\"List every pal name mentioned on this page, one per line, exactly as spelled including variant suffixes like Cryst, Ig...",
+  "error": "Claude Code is unable to fetch from www.ign.com",
+  "timestamp": "2026-07-21T10:14:50.471Z",
+  "retry_count": 1
+}

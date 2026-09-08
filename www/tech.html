@@ -7,27 +7,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/app.css?v=1.0.0">
 <link rel="stylesheet" href="vendor/quill/quill.snow.css">
-<link rel="stylesheet" href="css/sidenotes.css?v=1.0.0">
+<link rel="stylesheet" href="css/sidenotes.css?v=1.0.1">
 <link rel="stylesheet" href="css/tech.css?v=1.0.0">
 </head>
 <body class="tech-page">
 <div id="techHeader">
-  <a href="index.html" class="back-btn" title="Back to map">&larr;</a>
-  <div class="panel-title">Tech Tree</div>
+  <a href="index.html" class="back-btn" data-i18n-title="encyc.back_to_map">&larr;</a>
+  <div class="panel-title" data-i18n="encyc.tech_tree_title">Tech Tree</div>
 </div>
 <div id="techFilters">
-  <input id="techSearch" class="search-input" type="text" placeholder="Search tech...">
+  <input id="techSearch" class="search-input" type="text" data-i18n-placeholder="encyc.search_tech_placeholder" placeholder="Search tech...">
   <select id="techTypeFilter" class="search-input">
-    <option value="">All types</option>
-    <option value="items">Items</option>
-    <option value="structures">Structures</option>
+    <option value="" data-i18n="encyc.all_types_option">All types</option>
+    <option value="items" data-i18n="nav.items">Items</option>
+    <option value="structures" data-i18n="nav.structures">Structures</option>
   </select>
-  <label class="check-row"><input type="checkbox" id="techPartnerOnly"> Partner Skill</label>
-  <label class="check-row"><input type="checkbox" id="techAncientOnly"> Ancient Tech</label>
+  <label class="check-row"><input type="checkbox" id="techPartnerOnly"> <span data-i18n="tech.partner_skill_label">Partner Skill</span></label>
+  <label class="check-row"><input type="checkbox" id="techAncientOnly"> <span data-i18n="tech.ancient_tech_label">Ancient Tech</span></label>
 </div>
-<div id="techTree"><div class="empty">Loading...</div></div>
-<script src="js/tech.js?v=1.0.0"></script>
+<div id="techTree"><div class="empty" data-i18n="common.loading">Loading...</div></div>
+<script src="js/i18n.js?v=1.0.1"></script>
+<script src="js/tech.js?v=1.0.1"></script>
 <script src="vendor/quill/quill.min.js"></script>
-<script src="js/sidenotes.js?v=1.0.0"></script>
+<script src="js/sidenotes.js?v=1.0.3"></script>
 </body>
 </html>

@@ -7,37 +7,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/app.css?v=1.0.0">
 <link rel="stylesheet" href="vendor/quill/quill.snow.css">
-<link rel="stylesheet" href="css/sidenotes.css?v=1.0.0">
+<link rel="stylesheet" href="css/sidenotes.css?v=1.0.1">
 <link rel="stylesheet" href="css/breeding.css?v=1.0.0">
 </head>
 <body class="breeding-page">
 <div id="breedingHeader">
-  <a href="index.html" class="back-btn" title="Back to map">&larr;</a>
-  <div class="panel-title">Breeding</div>
+  <a href="index.html" class="back-btn" data-i18n-title="encyc.back_to_map">&larr;</a>
+  <div class="panel-title" data-i18n="nav.breeding">Breeding</div>
 </div>
 <div id="breedingLayout">
   <div class="breed-picker">
     <div class="breed-slot">
-      <div class="section-title">Parent A</div>
-      <input id="parentASearch" class="search-input" type="text" placeholder="Search pal...">
+      <div class="section-title" data-i18n="breeding.parent_a_title">Parent A</div>
+      <input id="parentASearch" class="search-input" type="text" data-i18n-placeholder="encyc.search_pal_placeholder" placeholder="Search pal...">
       <div id="parentAList" class="breed-pal-list"></div>
     </div>
     <div class="breed-slot">
-      <div class="section-title">Parent B</div>
-      <input id="parentBSearch" class="search-input" type="text" placeholder="Search pal...">
+      <div class="section-title" data-i18n="breeding.parent_b_title">Parent B</div>
+      <input id="parentBSearch" class="search-input" type="text" data-i18n-placeholder="encyc.search_pal_placeholder" placeholder="Search pal...">
       <div id="parentBList" class="breed-pal-list"></div>
     </div>
     <div class="breed-slot">
-      <div class="section-title">Find Parents (pick offspring)</div>
-      <input id="childSearch" class="search-input" type="text" placeholder="Search pal...">
+      <div class="section-title" data-i18n="breeding.find_parents_title">Find Parents (pick offspring)</div>
+      <input id="childSearch" class="search-input" type="text" data-i18n-placeholder="encyc.search_pal_placeholder" placeholder="Search pal...">
       <div id="childList" class="breed-pal-list"></div>
     </div>
   </div>
-  <div id="breedResult"><div class="empty">Pick two pals to see their offspring.</div></div>
+  <div id="breedResult"><div class="empty" data-i18n="breeding.pick_two_hint">Pick two pals to see their offspring.</div></div>
   <div id="parentsResult"></div>
 </div>
-<script src="js/breeding.js?v=1.0.0"></script>
+<script src="js/i18n.js?v=1.0.1"></script>
+<script src="js/breeding.js?v=1.0.1"></script>
 <script src="vendor/quill/quill.min.js"></script>
-<script src="js/sidenotes.js?v=1.0.0"></script>
+<script src="js/sidenotes.js?v=1.0.3"></script>
 </body>
 </html>

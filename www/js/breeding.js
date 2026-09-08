@@ -80,19 +80,19 @@
       return x.a.name.localeCompare(y.a.name) || x.b.name.localeCompare(y.b.name);
     });
     if (!list.length) {
-      el.innerHTML = '<div class="empty">No known parent combo produces ' + esc(targetChild.name) + '.</div>';
+      el.innerHTML = '<div class="empty">' + I18N.t('breeding.no_combo_prefix') + esc(targetChild.name) + '.</div>';
       return;
     }
     function pairIcon(p) {
       return '<div class="parents-result-icon" style="background-image:url(\'img/pals/' + esc(p.slug) + '.png\')"></div>' +
         '<div class="parents-result-name">' + esc(p.name) + '</div>';
     }
-    let html = '<div class="section-title">' + list.length + ' parent combo' + (list.length === 1 ? '' : 's') + ' for ' + esc(targetChild.name) + '</div>';
+    let html = '<div class="section-title">' + list.length + I18N.t(list.length === 1 ? 'breeding.parent_combo_singular' : 'breeding.parent_combo_plural') + esc(targetChild.name) + '</div>';
     html += '<div class="parents-result-list">';
     for (const combo of list) {
       html += '<div class="parents-result-row">' +
         '<div class="parents-result-pair">' + pairIcon(combo.a) + '<span class="parents-result-plus">+</span>' + pairIcon(combo.b) + '</div>' +
-        '<div class="parents-result-tag' + (combo.type === 'unique' ? ' unique' : '') + '">' + (combo.type === 'unique' ? 'Unique combo' : 'Combi Rank formula') + '</div>' +
+        '<div class="parents-result-tag' + (combo.type === 'unique' ? ' unique' : '') + '">' + (combo.type === 'unique' ? I18N.t('breeding.unique_combo_tag') : I18N.t('breeding.formula_tag')) + '</div>' +
         '</div>';
     }
     html += '</div>';
@@ -125,25 +125,25 @@
 
   function renderResult() {
     const el = document.getElementById('breedResult');
-    if (!parentA || !parentB) { el.innerHTML = '<div class="empty">Pick two pals to see their offspring.</div>'; return; }
+    if (!parentA || !parentB) { el.innerHTML = '<div class="empty">' + I18N.t('breeding.pick_two_hint') + '</div>'; return; }
 
     const unique = findUniqueCombo(parentA.name, parentB.name);
     let child, note;
     if (unique) {
       child = palByName[unique.child.toLowerCase()] || null;
-      note = 'Unique breeding combo (overrides the standard Combi Rank formula).';
+      note = I18N.t('breeding.unique_note');
     } else {
       const rankA = combiRankBySlug[parentA.slug];
       const rankB = combiRankBySlug[parentB.slug];
       if (rankA == null || rankB == null) {
-        el.innerHTML = '<div class="empty">Missing Combi Rank data for one of these pals.</div>';
+        el.innerHTML = '<div class="empty">' + I18N.t('breeding.missing_rank_data') + '</div>';
         return;
       }
       child = computeFormulaChild(rankA, rankB);
-      note = 'Computed from average Combi Rank (parents: ' + rankA + ' + ' + rankB + ').';
+      note = I18N.t('breeding.formula_note_prefix') + rankA + ' + ' + rankB + I18N.t('breeding.formula_note_suffix');
     }
 
-    if (!child) { el.innerHTML = '<div class="empty">Could not determine offspring.</div>'; return; }
+    if (!child) { el.innerHTML = '<div class="empty">' + I18N.t('breeding.could_not_determine') + '</div>'; return; }
 
     function palBlock(p, cls) {
       return '<div class="breed-result-pal' + (cls ? ' ' + cls : '') + '">' +
@@ -162,11 +162,11 @@
     el.innerHTML = html;
   }
 
-  Promise.all([
+  I18N.ready.then(() => Promise.all([
     fetch('data/pals.json').then(r => r.json()),
     fetch('data/pals-detail.json').then(r => r.json()),
     fetch('data/breeding-unique-combos.json').then(r => r.json()),
-  ]).then(([p, detail, combos]) => {
+  ])).then(([p, detail, combos]) => {
     pals = p.slice().sort((a, b) => a.name.localeCompare(b.name));
     for (const pal of pals) palByName[pal.name.toLowerCase()] = pal;
     for (const slug of Object.keys(detail)) {
@@ -183,7 +183,7 @@
     document.getElementById('parentBSearch').addEventListener('input', () => renderPalList('parentBList', 'parentBSearch', 'B'));
     document.getElementById('childSearch').addEventListener('input', () => renderPalList('childList', 'childSearch', 'C'));
   }).catch(err => {
-    document.getElementById('breedResult').innerHTML = '<div class="empty">Failed to load breeding data.</div>';
+    document.getElementById('breedResult').innerHTML = '<div class="empty">' + I18N.t('encyc.failed_load_breeding') + '</div>';
     console.error(err);
   });
 })();

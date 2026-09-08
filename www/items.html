@@ -7,20 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/app.css?v=1.0.0">
 <link rel="stylesheet" href="vendor/quill/quill.snow.css">
-<link rel="stylesheet" href="css/sidenotes.css?v=1.0.0">
+<link rel="stylesheet" href="css/sidenotes.css?v=1.0.1">
 <link rel="stylesheet" href="css/items.css?v=1.0.0">
 </head>
 <body class="items-page">
 <div id="itemsHeader">
-  <a href="index.html" class="back-btn" title="Back to map">&larr;</a>
-  <div class="panel-title">Items</div>
+  <a href="index.html" class="back-btn" data-i18n-title="encyc.back_to_map">&larr;</a>
+  <div class="panel-title" data-i18n="nav.items">Items</div>
 </div>
 <div id="itemsLayout">
-  <div id="itemsList"><div class="empty">Loading...</div></div>
-  <div id="itemsDetail"><div class="empty">Select an item to see details.</div></div>
+  <div id="itemsList"><div class="empty" data-i18n="common.loading">Loading...</div></div>
+  <div id="itemsDetail"><div class="empty" data-i18n="encyc.select_item_detail">Select an item to see details.</div></div>
 </div>
-<script src="js/items.js?v=1.0.0"></script>
+<script src="js/i18n.js?v=1.0.1"></script>
+<script src="js/items.js?v=1.0.1"></script>
 <script src="vendor/quill/quill.min.js"></script>
-<script src="js/sidenotes.js?v=1.0.0"></script>
+<script src="js/sidenotes.js?v=1.0.3"></script>
 </body>
 </html>

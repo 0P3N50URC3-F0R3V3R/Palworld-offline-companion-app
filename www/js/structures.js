@@ -26,9 +26,9 @@
     const rows = roster.filter(r => (!q || r.name.toLowerCase().includes(q)) && (!c || topCategory(r.category) === c));
 
     const categories = [...new Set(roster.map(r => topCategory(r.category)))].sort();
-    let html = '<input id="structuresSearch" class="search-input" type="text" placeholder="Search structures..." value="' + esc(filter || '') + '">';
+    let html = '<input id="structuresSearch" class="search-input" type="text" placeholder="' + esc(I18N.t('encyc.search_structures_placeholder')) + '" value="' + esc(filter || '') + '">';
     html += '<select id="structuresCategoryFilter" class="search-input">';
-    html += '<option value="">All categories (' + roster.length + ')</option>';
+    html += '<option value="">' + esc(I18N.t('encyc.all_categories_prefix')) + roster.length + ')</option>';
     for (const cat of categories) html += '<option value="' + esc(cat) + '"' + (cat === c ? ' selected' : '') + '>' + esc(cat) + '</option>';
     html += '</select>';
     html += '<div class="list">';
@@ -66,7 +66,7 @@
     const detailEl = document.getElementById('structuresDetail');
     const r = roster.find(x => x.slug === slug);
     const detail = detailBySlug[slug];
-    if (!r) { detailEl.innerHTML = '<div class="empty">No data for this structure yet.</div>'; return; }
+    if (!r) { detailEl.innerHTML = '<div class="empty">' + I18N.t('encyc.no_structure_data') + '</div>'; return; }
 
     let html = '<div class="structure-detail-header">';
     html += '<img class="structure-detail-icon" src="img/structures/' + esc(slug) + '.png" alt="">';
@@ -78,17 +78,17 @@
 
     const generalKeys = Object.keys((detail && detail.general) || {});
     if (generalKeys.length) {
-      html += '<div class="section-title">General</div><div class="stat-grid">';
+      html += '<div class="section-title">' + I18N.t('encyc.general_title') + '</div><div class="stat-grid">';
       for (const k of generalKeys) html += statRow(k, detail.general[k]);
       html += '</div>';
     } else if (r.stats && Object.keys(r.stats).length) {
-      html += '<div class="section-title">General</div><div class="stat-grid">';
+      html += '<div class="section-title">' + I18N.t('encyc.general_title') + '</div><div class="stat-grid">';
       for (const k of Object.keys(r.stats)) html += statRow(k, r.stats[k]);
       html += '</div>';
     }
 
     if (detail && detail.recipe && detail.recipe.length) {
-      html += '<div class="section-title">Recipe</div><ul class="recipe-list">';
+      html += '<div class="section-title">' + I18N.t('encyc.recipe_title') + '</div><ul class="recipe-list">';
       for (const item of detail.recipe) {
         const icon = localItemIconUrl(item.name);
         html += '<li>' + (icon ? '<img class="recipe-icon" src="' + esc(icon) + '" alt="">' : '') +
@@ -100,11 +100,11 @@
     detailEl.innerHTML = html;
   }
 
-  Promise.all([
+  I18N.ready.then(() => Promise.all([
     fetch('data/structures.json').then(r => r.json()),
     fetch('data/structures-detail.json').then(r => r.json()).catch(() => ({})),
     fetch('data/items.json').then(r => r.json()).catch(() => []),
-  ]).then(([r, d, items]) => {
+  ])).then(([r, d, items]) => {
     roster = r.slice().sort((a, b) => {
       const ca = topCategory(a.category), cb = topCategory(b.category);
       return ca !== cb ? ca.localeCompare(cb) : a.name.localeCompare(b.name);
@@ -113,7 +113,7 @@
     for (const it of items) itemIconByName[it.name.toLowerCase()] = it.slug;
     renderList('', '');
   }).catch(err => {
-    document.getElementById('structuresList').innerHTML = '<div class="empty">Failed to load structure data.</div>';
+    document.getElementById('structuresList').innerHTML = '<div class="empty">' + I18N.t('encyc.failed_load_structure') + '</div>';
     console.error(err);
   });
 })();

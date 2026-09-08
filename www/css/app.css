@@ -9,12 +9,20 @@ html, body { height: 100%; margin: 0; font-family: -apple-system, Segoe UI, Aria
 }
 #sidebar-content { padding: 14px 14px 28px; }
 
-#profileBar {
+#topBar {
   position: sticky; top: 0; z-index: 10; background: #14202e;
-  padding: 10px 14px; border-bottom: 1px solid #22354a; cursor: pointer;
+  border-bottom: 1px solid #22354a; display: flex; align-items: center;
+}
+#profileBar {
+  flex: 1; padding: 10px 14px; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between;
 }
 #profileBar:hover { background: #182838; }
+#langSwitcher { padding: 10px 10px 10px 0; }
+.lang-switcher-select {
+  background: #1c2c40; color: #e8ecf1; border: 1px solid #22354a;
+  border-radius: 5px; font-size: 12px; padding: 4px 6px;
+}
 .profile-bar-name { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
 .profile-bar-chev { color: #7d90ab; font-size: 11px; }
 
@@ -349,3 +357,8 @@ html, body { height: 100%; margin: 0; font-family: -apple-system, Segoe UI, Aria
 .player-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 .player-panel-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .player-panel-lvl { color: #7d90ab; font-size: 11px; }
+
+/* ---- RTL (Arabic) ---- */
+[dir="rtl"] #sidebar { left: auto; right: 0; box-shadow: -2px 0 8px rgba(0,0,0,.4); }
+[dir="rtl"] #map { left: 0; right: 320px; }
+[dir="rtl"] .version-tag { left: auto; right: 10px; }

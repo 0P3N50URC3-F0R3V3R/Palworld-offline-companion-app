@@ -1,6 +1,6 @@
 (function () {
   const ELEMENTS = ['neutral', 'fire', 'water', 'grass', 'electric', 'ice', 'ground', 'dark', 'dragon'];
-  const LABEL = { neutral: 'Neutral', fire: 'Fire', water: 'Water', grass: 'Grass', electric: 'Electric', ice: 'Ice', ground: 'Ground', dark: 'Dark', dragon: 'Dragon' };
+  function label(el) { return I18N.t('typechart.' + el); }
   // Verified against Palworld community type charts (Dexerto/GameWith): each element's
   // super-effective (1.5x) targets. Same-element attacks are resisted (0.5x). Everything else 1x.
   const STRONG_AGAINST = {
@@ -26,11 +26,11 @@
   }
 
   function renderGrid() {
-    let html = '<table class="type-chart-table"><thead><tr><th class="tc-corner">Atk \\ Def</th>';
-    for (const def of ELEMENTS) html += '<th>' + LABEL[def] + '</th>';
+    let html = '<table class="type-chart-table"><thead><tr><th class="tc-corner">' + I18N.t('typechart.atk_def_corner') + '</th>';
+    for (const def of ELEMENTS) html += '<th>' + label(def) + '</th>';
     html += '</tr></thead><tbody>';
     for (const atk of ELEMENTS) {
-      html += '<tr><th>' + LABEL[atk] + '</th>';
+      html += '<tr><th>' + label(atk) + '</th>';
       for (const def of ELEMENTS) {
         const m = multiplier(atk, def);
         const cls = m === 1.5 ? 'tc-strong' : m === 0.5 ? 'tc-weak' : 'tc-neutral';
@@ -50,14 +50,14 @@
       return '<div class="tc-pal-chip"><span class="tc-pal-thumb" style="background-image:url(\'img/pals/' + esc(p.slug) + '.png\')"></span>' +
         '<span>' + esc(p.name) + '</span></div>';
     }
-    let html = '<div class="section-title">' + LABEL[atk] + ' attackers (' + atkPals.length + ')</div><div class="tc-pal-list">' + atkPals.map(palChip).join('') + '</div>';
+    let html = '<div class="section-title">' + label(atk) + I18N.t('typechart.attackers_suffix') + atkPals.length + ')</div><div class="tc-pal-list">' + atkPals.map(palChip).join('') + '</div>';
     if (def !== atk) {
-      html += '<div class="section-title">' + LABEL[def] + ' defenders (' + defPals.length + ')</div><div class="tc-pal-list">' + defPals.map(palChip).join('') + '</div>';
+      html += '<div class="section-title">' + label(def) + I18N.t('typechart.defenders_suffix') + defPals.length + ')</div><div class="tc-pal-list">' + defPals.map(palChip).join('') + '</div>';
     }
     el.innerHTML = html;
   }
 
-  fetch('data/pals.json').then(r => r.json()).then(pals => {
+  I18N.ready.then(() => fetch('data/pals.json')).then(r => r.json()).then(pals => {
     renderGrid();
     document.querySelectorAll('#typeChartGrid td[data-atk]').forEach(td => {
       td.addEventListener('click', () => renderPalsFor(td.dataset.atk, td.dataset.def, pals));

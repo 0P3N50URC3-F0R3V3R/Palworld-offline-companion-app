@@ -1,4 +1,6 @@
 (async function () {
+  await I18N.ready;
+  I18N.renderSwitcher(document.getElementById('langSwitcher'));
   const [mapMeta, types, markers, regions, checklistData, heatmapData, palIcons, checklistTaskNames] = await Promise.all([
     fetch('data/map.json').then(r => r.json()),
     fetch('data/types.json').then(r => r.json()),
@@ -14,14 +16,14 @@
   let existingProfiles = await AppState.listProfiles();
   if (!existingProfiles.length) {
     let name = null;
-    let title = 'Who\'s playing?';
+    let title = I18N.t('app.who_playing_title');
     while (!name) {
-      const entered = (await showPrompt(title, 'Enter a name...')) || '';
+      const entered = (await showPrompt(title, I18N.t('modal.enter_name_placeholder'))) || '';
       const trimmed = entered.trim();
       if (PROFILE_NAME_PATTERN.test(trimmed)) {
         name = trimmed;
       } else {
-        title = 'Please enter a name (letters, numbers, spaces, 1-30 characters)';
+        title = I18N.t('app.name_invalid_retry');
       }
     }
     await AppState.createProfile(name);
@@ -71,7 +73,7 @@
   L.tileLayer('tiles.mapgenie.io/games/palworld/1-0/default-v1/{z}/{x}/{y}.jpg', {
     minZoom: mapMeta.minZoom, maxZoom: mapMeta.maxZoom, tileSize: 256, noWrap: true,
     keepBuffer: 3,
-    attribution: 'Map data mirrored from IGN / MapGenie for offline use',
+    attribution: I18N.t('app.attribution'),
   }).addTo(map);
 
   // ---------------- region borders ----------------
@@ -206,11 +208,11 @@
     const completed = m.checklistTaskId && completedTaskIds.has(m.checklistTaskId);
     let html = '<div class="popup">';
     html += '<div class="popup-title-row"><b>' + esc(m.name) + '</b>' +
-      '<button class="popup-edit-btn" data-marker-id="' + esc(m.id) + '" title="Edit this marker">&#9998;</button></div>';
+      '<button class="popup-edit-btn" data-marker-id="' + esc(m.id) + '" title="' + esc(I18N.t('popup.edit_marker_title')) + '">&#9998;</button></div>';
     html += '<div class="type">' + esc(t.typeName) + (region ? ' &middot; ' + esc(region.title) : '') + '</div>';
     if (m.checklistTaskId) {
       html += '<button class="popup-complete-btn' + (completed ? ' done' : '') + '" data-task="' + m.checklistTaskId + '">' +
-        (completed ? '✓ Completed (undo)' : 'Mark complete') + '</button>';
+        (completed ? I18N.t('popup.completed_undo') : I18N.t('popup.mark_complete')) + '</button>';
     }
     html += '</div>';
     return html;
@@ -513,7 +515,7 @@
         wantedKeys.add(key);
         let marker = livePlayerMarkerByKey.get(key);
         const color = colorForPlayer(p.userId);
-        const popupHtml = () => '<div class="popup"><b>' + esc(p.name) + '</b><div class="type">Lvl ' + p.level +
+        const popupHtml = () => '<div class="popup"><b>' + esc(p.name) + '</b><div class="type">' + I18N.t('app.level_abbr') + ' ' + p.level +
           ' &middot; ' + Math.round(p.ping) + 'ms &middot; ' + esc(server.name) +
           '<br>X: ' + Math.round(p.location_x) + ', Y: ' + Math.round(p.location_y) + '</div></div>';
         if (!marker) {
@@ -573,11 +575,11 @@
     overlayEl.style.display = 'block';
     overlayEl.innerHTML =
       '<div class="m-title">' + esc(entry.server.name) + '</div>' +
-      '<div class="m-row"><span>Players</span><b>' + m.currentplayernum + ' / ' + m.maxplayernum + '</b></div>' +
-      '<div class="m-row"><span>Server FPS</span><b>' + Math.round(m.serverfps) + '</b></div>' +
-      '<div class="m-row"><span>Uptime</span><b>' + formatUptime(m.uptime) + '</b></div>' +
-      '<div class="m-row"><span>Day</span><b>' + m.days + '</b></div>' +
-      '<div class="m-row"><span>Base camps</span><b>' + m.basecampnum + '</b></div>';
+      '<div class="m-row"><span>' + I18N.t('app.metrics_players') + '</span><b>' + m.currentplayernum + ' / ' + m.maxplayernum + '</b></div>' +
+      '<div class="m-row"><span>' + I18N.t('app.metrics_server_fps') + '</span><b>' + Math.round(m.serverfps) + '</b></div>' +
+      '<div class="m-row"><span>' + I18N.t('app.metrics_uptime') + '</span><b>' + formatUptime(m.uptime) + '</b></div>' +
+      '<div class="m-row"><span>' + I18N.t('app.metrics_day') + '</span><b>' + m.days + '</b></div>' +
+      '<div class="m-row"><span>' + I18N.t('app.metrics_base_camps') + '</span><b>' + m.basecampnum + '</b></div>';
   }
 
   function updatePlayersPanel() {
@@ -591,13 +593,13 @@
     }
     if (!rows.length) { panelEl.style.display = 'none'; return; }
     panelEl.style.display = 'block';
-    panelEl.innerHTML = '<div class="m-title">Players (' + rows.length + ')</div>' +
+    panelEl.innerHTML = '<div class="m-title">' + I18N.t('app.players_panel_title') + ' (' + rows.length + ')</div>' +
       rows.map(({ server, p }) => {
         const color = colorForPlayer(p.userId);
         return '<div class="player-panel-row" data-server="' + esc(server.id) + '" data-player="' + esc(p.playerId) + '">' +
           '<span class="player-dot" style="background:' + color + '"></span>' +
           '<span class="player-panel-name">' + esc(p.name) + '</span>' +
-          '<span class="player-panel-lvl">Lvl ' + p.level + '</span></div>';
+          '<span class="player-panel-lvl">' + I18N.t('app.level_abbr') + ' ' + p.level + '</span></div>';
       }).join('');
     panelEl.querySelectorAll('.player-panel-row').forEach((row) => {
       row.addEventListener('click', () => {
@@ -770,11 +772,11 @@
     const mode = placementMode;
     if (mode === 'note') {
       setPlacementMode(null);
-      const result = await showNoteForm('Add a note');
+      const result = await showNoteForm(I18N.t('ctx.add_note_title'));
       if (result) addNote(latlng, result.title, result.text);
     } else if (mode === 'marker') {
       setPlacementMode(null);
-      const name = await showPrompt('Add a marker', 'Marker name...');
+      const name = await showPrompt(I18N.t('ctx.add_marker_title'), I18N.t('ctx.marker_name_placeholder'));
       if (name) addCustomMarker(latlng, name);
     } else if (mode === 'calibrate') {
       setPlacementMode(null);
@@ -805,19 +807,19 @@
 
     const markerItem = document.createElement('div');
     markerItem.className = 'map-context-menu-item';
-    markerItem.textContent = 'Add marker here';
+    markerItem.textContent = I18N.t('ctx.add_marker_here');
     markerItem.addEventListener('click', async () => {
       closeMapContextMenu();
-      const name = await showPrompt('Add a marker', 'Marker name...');
+      const name = await showPrompt(I18N.t('ctx.add_marker_title'), I18N.t('ctx.marker_name_placeholder'));
       if (name) addCustomMarker(latlng, name);
     });
 
     const noteItem = document.createElement('div');
     noteItem.className = 'map-context-menu-item';
-    noteItem.textContent = 'Add note here';
+    noteItem.textContent = I18N.t('ctx.add_note_here');
     noteItem.addEventListener('click', async () => {
       closeMapContextMenu();
-      const result = await showNoteForm('Add a note');
+      const result = await showNoteForm(I18N.t('ctx.add_note_title'));
       if (result) addNote(latlng, result.title, result.text);
     });
 

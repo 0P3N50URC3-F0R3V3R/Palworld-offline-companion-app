@@ -1,4 +1,5 @@
 (function () {
+  const CATEGORY_KEYS = { Active: 'skills.active_tab', Passive: 'skills.passive_tab', Partner: 'skills.partner_tab', Surgery: 'skills.surgery_tab' };
   const CATEGORIES = ['Active', 'Passive', 'Partner', 'Surgery'];
   let skills = [];
   let palIconByName = {};
@@ -26,7 +27,7 @@
     const el = document.getElementById('skillsTabs');
     el.innerHTML = CATEGORIES.map(c => {
       const count = skills.filter(s => s.category === c).length;
-      return '<button class="skills-tab' + (c === currentTab ? ' active' : '') + '" data-cat="' + c + '">' + c + ' (' + count + ')</button>';
+      return '<button class="skills-tab' + (c === currentTab ? ' active' : '') + '" data-cat="' + c + '">' + I18N.t(CATEGORY_KEYS[c]) + ' (' + count + ')</button>';
     }).join('');
     el.querySelectorAll('.skills-tab').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -34,7 +35,7 @@
         selectedSlug = null;
         renderTabs();
         renderList('');
-        document.getElementById('skillsDetail').innerHTML = '<div class="empty">Select a skill to see details.</div>';
+        document.getElementById('skillsDetail').innerHTML = '<div class="empty">' + I18N.t('encyc.select_skill_detail') + '</div>';
       });
     });
   }
@@ -44,7 +45,7 @@
     const q = (filter || '').trim().toLowerCase();
     const rows = skills.filter(s => s.category === currentTab && (!q || s.name.toLowerCase().includes(q)));
 
-    let html = '<input id="skillsSearch" class="search-input" type="text" placeholder="Search ' + currentTab.toLowerCase() + ' skills..." value="' + esc(filter || '') + '">';
+    let html = '<input id="skillsSearch" class="search-input" type="text" placeholder="' + esc(I18N.t('encyc.search_skills_placeholder')) + '" value="' + esc(filter || '') + '">';
     html += '<div class="list">';
     for (const s of rows) {
       const thumb = thumbUrl(s);
@@ -80,7 +81,7 @@
   function renderDetail(slug) {
     const el = document.getElementById('skillsDetail');
     const s = skills.find(x => x.slug === slug);
-    if (!s) { el.innerHTML = '<div class="empty">No data for this skill.</div>'; return; }
+    if (!s) { el.innerHTML = '<div class="empty">' + I18N.t('encyc.no_skill_data') + '</div>'; return; }
 
     const thumb = thumbUrl(s);
     let html = '<div class="skill-detail-header">';
@@ -103,21 +104,21 @@
     }
 
     if (s.inflicts) html += '<p class="skill-inflicts">' + esc(s.inflicts) + '</p>';
-    if (s.rating != null) html += '<p class="skill-rating">Rating ' + esc(s.rating) + '</p>';
+    if (s.rating != null) html += '<p class="skill-rating">' + I18N.t('encyc.rating_prefix') + esc(s.rating) + '</p>';
 
     el.innerHTML = html;
   }
 
-  Promise.all([
+  I18N.ready.then(() => Promise.all([
     fetch('data/skills.json').then(r => r.json()),
     fetch('data/pals.json').then(r => r.json()).catch(() => []),
-  ]).then(([sk, pals]) => {
+  ])).then(([sk, pals]) => {
     skills = sk;
     for (const p of pals) palIconByName[p.name.toLowerCase()] = p.slug;
     renderTabs();
     renderList('');
   }).catch(err => {
-    document.getElementById('skillsList').innerHTML = '<div class="empty">Failed to load skills data.</div>';
+    document.getElementById('skillsList').innerHTML = '<div class="empty">' + I18N.t('encyc.failed_load_skills') + '</div>';
     console.error(err);
   });
 })();
