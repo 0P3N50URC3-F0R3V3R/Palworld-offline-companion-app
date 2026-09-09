@@ -154,7 +154,7 @@
         parentCb.indeterminate = false;
       });
       const titleSpan = document.createElement('span');
-      titleSpan.textContent = parent.typeName;
+      titleSpan.textContent = I18N.t('category.' + parent.typeSlug);
       const countSpan = document.createElement('span');
       countSpan.className = 'count';
       countSpan.textContent = children.reduce((s, c) => s + (c.markerCount || 0), 0);
@@ -176,7 +176,7 @@
         const swatch = document.createElement('span');
         swatch.className = 'swatch mk-' + t.typeSlug;
         const label = document.createElement('span');
-        label.textContent = t.typeName;
+        label.textContent = I18N.t('category.' + t.typeSlug);
         const count = document.createElement('span');
         count.className = 'count';
         count.textContent = t.markerCount;
